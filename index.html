@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <div id="controls">
+      <input type="text" id="monsterType" placeholder="monsterType">
+      <input type="text" id="eyeScore" placeholder="eyeScore">
+      <input type="text" id="brainScore" placeholder="brainScore">
+      <input type="text" id="bleedingScore" placeholder="bleedingScore">
+      <input type="text" id="stomachScore" placeholder="stomachScore">
+
+      <button id="submitButton">Submit</button>
+    </div>
+
+    <main class="page">
+      <header class="header">
+        <!--<h1 class="title">Your Monster</h1>-->
+        <img src="media/logo.png" id="logo" alt="Patchwork Logo" class="cardTemplate">
+        <p class="subtitle">Download your card as a PNG when you’re ready.</p>
+      </header>
+
+      <!-- p5 canvas will be placed here -->
+      <section id="canvasWrap" class="canvasWrap"></section>
+
+      <footer class="actions">
+        <button id="downloadButton" class="btn primary">Download PNG</button>
+      </footer>
+
+      <script src="sketch.js"></script>
+    </main>
+  </body>
+</html>

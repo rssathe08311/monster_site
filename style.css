@@ -1,0 +1,147 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+:root {
+  --bg0: #07070a;
+  --bg1: #0b0c12;
+  --panel: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.65);
+  --shadow: 0 18px 60px rgba(0,0,0,0.5);
+  --radius: 18px;
+}
+
+/* base */
+* { box-sizing: border-box; }
+
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 700px at 10% -10%, rgba(255,255,255,0.10), transparent 55%),
+    radial-gradient(1000px 650px at 95% 5%, rgba(255,255,255,0.08), transparent 50%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+}
+
+/* hide your control block visually (your JS can also do it) */
+#controls { display: none; }
+
+/* page layout */
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 18px 34px;
+  display: grid;
+  gap: 16px;
+}
+
+.header {
+  text-align: center;
+  padding-top: 6px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: 0.3px;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* canvas card */
+.canvasWrap {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+
+  /* center the canvas */
+  display: grid;
+  place-items: center;
+
+  /* helps with big canvases on smaller screens */
+  overflow: hidden;
+}
+
+/* p5 injects a canvas element */
+.canvasWrap canvas {
+  display: block;
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 12px;
+}
+
+/* button bar */
+.actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+/* button styling */
+.btn {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 12px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
+.btn.primary {
+  background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+}
+
+/* sticky download on mobile */
+@media (max-width: 640px) {
+  .actions {
+    position: sticky;
+    bottom: 12px;
+    padding: 10px 12px;
+    background: rgba(10,10,15,0.55);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 16px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+#logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 8px;
+}
